@@ -1,0 +1,74 @@
+[gd_scene load_steps=10 format=3 uid="uid://cra6tyqg8yb37"]
+
+[ext_resource type="Texture2D" uid="uid://dbpx1y7o5jd4r" path="res://mystic_woods_free_2.1 use/sprites/characters/player.png" id="1_pmtta"]
+
+[sub_resource type="GDScript" id="GDScript_8fp56"]
+script/source = "extends CharacterBody2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	$AnimatedSprite2D.play(\"default\")
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qnhdn"]
+atlas = ExtResource("1_pmtta")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ut4m"]
+atlas = ExtResource("1_pmtta")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2lae"]
+atlas = ExtResource("1_pmtta")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mr8tq"]
+atlas = ExtResource("1_pmtta")
+region = Rect2(144, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8gtrg"]
+atlas = ExtResource("1_pmtta")
+region = Rect2(192, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f22hh"]
+atlas = ExtResource("1_pmtta")
+region = Rect2(240, 48, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j2u3w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qnhdn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ut4m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2lae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mr8tq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8gtrg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f22hh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="QuestGiver" type="CharacterBody2D"]
+script = SubResource("GDScript_8fp56")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_j2u3w")
+frame_progress = 0.295889

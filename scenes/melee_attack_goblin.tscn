@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://ca0qvworkqp2m"]
+
+[ext_resource type="Script" path="res://scripts/melee_attack_goblin.gd" id="1_xgfu2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o0uox"]
+size = Vector2(35.8594, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ewn6a"]
+size = Vector2(36.375, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5wxcc"]
+size = Vector2(48, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k0f45"]
+size = Vector2(48, 31)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_erivj"]
+
+[node name="MeleeAttack" type="Area2D"]
+script = ExtResource("1_xgfu2")
+
+[node name="Detector_Right" type="CollisionShape2D" parent="."]
+position = Vector2(10.0703, 0)
+shape = SubResource("RectangleShape2D_o0uox")
+disabled = true
+debug_color = Color(0, 0, 0, 0.619608)
+
+[node name="Detector_Left" type="CollisionShape2D" parent="."]
+position = Vector2(-7.8125, 0)
+shape = SubResource("RectangleShape2D_ewn6a")
+disabled = true
+
+[node name="Detector_Up" type="CollisionShape2D" parent="."]
+position = Vector2(1, -14)
+shape = SubResource("RectangleShape2D_5wxcc")
+disabled = true
+
+[node name="Detector_Down" type="CollisionShape2D" parent="."]
+position = Vector2(1, 14.5)
+shape = SubResource("RectangleShape2D_k0f45")
+disabled = true
+debug_color = Color(0.929412, 0.984314, 1, 0.419608)
+
+[node name="Detector" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_erivj")
+disabled = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

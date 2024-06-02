@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://df0md38je2kjq"]
+
+[ext_resource type="Texture2D" uid="uid://dbpx1y7o5jd4r" path="res://mystic_woods_free_2.1 use/sprites/characters/player.png" id="1_5f18i"]
+[ext_resource type="Script" path="res://scripts/death_scene.gd" id="1_vgbuc"]
+[ext_resource type="Texture2D" uid="uid://54wvnbdyveqk" path="res://buttons text pack/playuse.png" id="2_4tmp4"]
+[ext_resource type="FontFile" uid="uid://dapdd7bt7gjcl" path="res://fonts/Symtext.ttf" id="2_xenff"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xaor"]
+atlas = ExtResource("1_5f18i")
+region = Rect2(96, 432, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pc2lo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1xaor")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Death_Scene" type="Node2D"]
+script = ExtResource("1_vgbuc")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1163.0
+offset_bottom = 589.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(193, 91)
+sprite_frames = SubResource("SpriteFrames_pc2lo")
+
+[node name="DeathTag" type="Label" parent="."]
+offset_left = 126.0
+offset_top = 34.0
+offset_right = 283.0
+offset_bottom = 73.0
+theme_override_fonts/font = ExtResource("2_xenff")
+theme_override_font_sizes/font_size = 26
+text = "You Died!!!"
+
+[node name="PlayAgain" type="Button" parent="."]
+offset_left = 143.0
+offset_top = 116.0
+offset_right = 251.0
+offset_bottom = 161.0
+icon = ExtResource("2_4tmp4")
+
+[connection signal="button_down" from="PlayAgain" to="." method="_on_play_again_button_down"]

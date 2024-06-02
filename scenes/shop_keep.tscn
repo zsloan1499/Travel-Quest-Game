@@ -1,0 +1,61 @@
+[gd_scene load_steps=10 format=3 uid="uid://b87v5bwc4jp6k"]
+
+[ext_resource type="Texture2D" uid="uid://dbpx1y7o5jd4r" path="res://mystic_woods_free_2.1 use/sprites/characters/player.png" id="1_8whyn"]
+[ext_resource type="Script" path="res://scripts/shop_keep.gd" id="1_skakv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7g1nn"]
+atlas = ExtResource("1_8whyn")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04324"]
+atlas = ExtResource("1_8whyn")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7n7hw"]
+atlas = ExtResource("1_8whyn")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfei1"]
+atlas = ExtResource("1_8whyn")
+region = Rect2(144, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1n2x"]
+atlas = ExtResource("1_8whyn")
+region = Rect2(192, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1a7bl"]
+atlas = ExtResource("1_8whyn")
+region = Rect2(240, 48, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xh3il"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7g1nn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04324")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7n7hw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yfei1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1n2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1a7bl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Shop_keep" type="CharacterBody2D"]
+script = ExtResource("1_skakv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xh3il")
+frame_progress = 0.609766

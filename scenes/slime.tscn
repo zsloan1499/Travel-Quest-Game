@@ -1,0 +1,167 @@
+[gd_scene load_steps=23 format=3 uid="uid://hmeu4mn3ib8b"]
+
+[ext_resource type="Script" path="res://scripts/slime.gd" id="1_3fr4k"]
+[ext_resource type="Texture2D" uid="uid://dfvld767b7ctx" path="res://mystic_woods_free_2.1 use/sprites/characters/slime.png" id="1_xmk33"]
+[ext_resource type="AudioStream" uid="uid://ch0nyyd65x5xx" path="res://sounds/slime death or damage.mp3" id="3_f8ppi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ltl5m"]
+atlas = ExtResource("1_xmk33")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfy0q"]
+atlas = ExtResource("1_xmk33")
+region = Rect2(32, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8xnn"]
+atlas = ExtResource("1_xmk33")
+region = Rect2(64, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dauu"]
+atlas = ExtResource("1_xmk33")
+region = Rect2(96, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxfr4"]
+atlas = ExtResource("1_xmk33")
+region = Rect2(128, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uaclq"]
+atlas = ExtResource("1_xmk33")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5wt5"]
+atlas = ExtResource("1_xmk33")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_klpt7"]
+atlas = ExtResource("1_xmk33")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qddmh"]
+atlas = ExtResource("1_xmk33")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edlcv"]
+atlas = ExtResource("1_xmk33")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_thfxr"]
+atlas = ExtResource("1_xmk33")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckrh1"]
+atlas = ExtResource("1_xmk33")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xpbca"]
+atlas = ExtResource("1_xmk33")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_owwk0"]
+atlas = ExtResource("1_xmk33")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7yc6g"]
+atlas = ExtResource("1_xmk33")
+region = Rect2(160, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nh43f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ltl5m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tfy0q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8xnn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7dauu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxfr4")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uaclq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5wt5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_klpt7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qddmh")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edlcv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_thfxr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ckrh1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xpbca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_owwk0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7yc6g")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_34ljd"]
+radius = 71.0634
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yxsbr"]
+radius = 4.12311
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i6rt0"]
+radius = 33.0
+
+[node name="Slime" type="CharacterBody2D" groups=["slime"]]
+y_sort_enabled = true
+script = ExtResource("1_3fr4k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_nh43f")
+animation = &"death"
+frame_progress = 0.613182
+
+[node name="Vision" type="Area2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vision"]
+shape = SubResource("CircleShape2D_34ljd")
+
+[node name="worldCollison" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_yxsbr")
+
+[node name="Slime_Hit_Box" type="Area2D" parent="."]
+
+[node name="slime_damage_box" type="CollisionShape2D" parent="Slime_Hit_Box"]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_i6rt0")
+
+[node name="hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_f8ppi")
+
+[connection signal="body_entered" from="Vision" to="." method="_on_vision_body_entered"]

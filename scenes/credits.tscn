@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://duf6r3j2t8efr"]
+
+[node name="credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 974.0
+offset_bottom = 545.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 30.0
+offset_right = 61.0
+offset_bottom = 53.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Mystic woods pack by Game Endevor"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 27.0
+offset_top = 73.0
+offset_right = 222.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Tiny Swords by Pixel Frog"
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 22.0
+offset_top = 128.0
+offset_right = 62.0
+offset_bottom = 151.0
